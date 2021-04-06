@@ -25,4 +25,15 @@ public class UsuarioService {
     public void createUsuario(Usuario usuario) {
         usuarioRepository.save(usuario);
     }
+
+    public void deleteUsuario(Long usuarioId) {
+        boolean usuarioExiste = usuarioRepository.existsById(usuarioId);
+
+        if (!usuarioExiste) {
+            throw new IllegalStateException("Usuário não encontrado.");
+        }
+
+        usuarioRepository.deleteById(usuarioId);
+
+    }
 }
