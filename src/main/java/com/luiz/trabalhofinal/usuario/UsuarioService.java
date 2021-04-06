@@ -20,4 +20,9 @@ public class UsuarioService {
     public List<Usuario> getUsuarios() {
         return usuarioRepository.findAll();
     }
+
+    // @TODO luizdebem - Validações
+    public void createUsuario(Usuario usuario) {
+        usuarioRepository.save(usuario);
+    }
 }
