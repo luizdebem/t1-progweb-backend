@@ -2,6 +2,7 @@ package com.luiz.trabalhofinal.usuario;
 
 import javax.annotation.Generated;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -18,14 +19,30 @@ public class Usuario {
             generator = "usuario_sequence"
     )
     private Long id;
+
+    @NotNull
+    @Column(unique=true)
     private String login;
+
+    @NotNull
     private String senha;
+
+    @NotNull
     private String nomeCompleto;
+
+    @NotNull
+    @Column(unique=true)
     private String CPF;
+
+    @NotNull
     private Date dataDeNascimento;
+
     @Enumerated(EnumType.STRING)
+    @NotNull
     private Sexo sexo;
+
     @Enumerated(EnumType.STRING)
+    @NotNull
     private EstadoCivil estadoCivil;
 
     public Usuario() {
