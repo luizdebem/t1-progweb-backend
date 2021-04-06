@@ -1,15 +1,31 @@
 package com.luiz.trabalhofinal.usuario;
 
+import javax.annotation.Generated;
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table
 public class Usuario {
+    @Id
+    @SequenceGenerator(
+            name = "usuario_sequence",
+            sequenceName = "usuario_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "usuario_sequence"
+    )
     private Long id;
     private String login;
     private String senha;
     private String nomeCompleto;
     private String CPF;
     private Date dataDeNascimento;
+    @Enumerated(EnumType.STRING)
     private Sexo sexo;
+    @Enumerated(EnumType.STRING)
     private EstadoCivil estadoCivil;
 
     public Usuario() {
