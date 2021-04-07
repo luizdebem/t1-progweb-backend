@@ -20,29 +20,22 @@ public class Usuario {
     )
     private Long id;
 
-    @NotNull
     @Column(unique=true)
     private String login;
 
-    @NotNull
     private String senha;
 
-    @NotNull
     private String nomeCompleto;
 
-    @NotNull
     @Column(unique=true)
     private String CPF;
 
-    @NotNull
     private Date dataDeNascimento;
 
     @Enumerated(EnumType.STRING)
-    @NotNull
     private Sexo sexo;
 
     @Enumerated(EnumType.STRING)
-    @NotNull
     private EstadoCivil estadoCivil;
 
     public Usuario() {

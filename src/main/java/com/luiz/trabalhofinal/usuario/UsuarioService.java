@@ -21,9 +21,20 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    // @TODO luizdebem - Validações
     public void createUsuario(Usuario usuario) {
         usuarioRepository.save(usuario);
+    }
+
+    public void updateUsuario(Usuario usuario) {
+        Usuario usuarioExistente = usuarioRepository.findById(usuario.getId()).orElseThrow(() -> new IllegalStateException("Usuário não encontrado."));
+        usuarioExistente.setCPF(usuario.getCPF());
+        usuarioExistente.setDataDeNascimento(usuario.getDataDeNascimento());
+        usuarioExistente.setEstadoCivil(usuario.getEstadoCivil());
+        usuarioExistente.setLogin(usuario.getLogin());
+        usuarioExistente.setSenha(usuario.getSenha());
+        usuarioExistente.setNomeCompleto(usuario.getNomeCompleto());
+        usuarioExistente.setSexo(usuario.getSexo());
+        usuarioRepository.save(usuarioExistente);
     }
 
     public void deleteUsuario(Long usuarioId) {

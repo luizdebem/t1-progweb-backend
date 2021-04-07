@@ -30,6 +30,11 @@ public class UsuarioController {
         usuarioService.createUsuario(usuario);
     }
 
+    @PutMapping
+    public void updateUsuario(@RequestBody Usuario usuario) {
+        usuarioService.updateUsuario(usuario);
+    }
+
     @DeleteMapping(path = "{usuarioId}") // variável no path (/users/2 por exemplo)
     public void deleteUsuario(@PathVariable("usuarioId") Long usuarioId) {
         usuarioService.deleteUsuario(usuarioId);
