@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(path = "api/v1/usuarios")
 public class UsuarioController {
     private final UsuarioService usuarioService;
