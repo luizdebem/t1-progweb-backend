@@ -1,13 +1,9 @@
 package com.luiz.trabalhofinal.usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -27,8 +23,8 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public void postUsuario(@RequestBody Usuario usuario) {
-        usuarioService.createUsuario(usuario);
+    public Usuario postUsuario(@RequestBody Usuario usuario) {
+        return usuarioService.createUsuario(usuario);
     }
 
     @PutMapping

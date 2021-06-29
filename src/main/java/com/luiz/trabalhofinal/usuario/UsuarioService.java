@@ -5,8 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -23,8 +21,8 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public void createUsuario(Usuario usuario) {
-        usuarioRepository.save(usuario);
+    public Usuario createUsuario(Usuario usuario) {
+        return usuarioRepository.save(usuario);
     }
 
     public void updateUsuario(Usuario usuario) {
